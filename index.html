@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./main.css">
+        <title>English Test - Home</title>
+    </head>
+    <body>
+
+        <div class="main">
+            <h1>Input Your Infomation</h1>
+            <div>
+                <p>Your name</p>
+
+                <input type="text" id="name" name="name"
+                    minlength="4" maxlength="8" size="10">
+            </div>
+            
+
+            <form id="QuizPattern">
+            <div>
+                <p>Quiz Pattern</p>
+
+
+                <div>
+                    <div>
+                        <input type="radio" id="huey" name="drone" value="A1">
+                        <label for="huey">A1</label>
+                                    
+                        <input type="radio" id="louie" name="drone" value="B1">
+                        <label for="louie">B1</label>
+                    
+                        <input type="radio" id="huey" name="drone" value="C1">
+                        <label for="huey">C1</label>                
+
+                        <input type="radio" id="louie" name="drone" value="D1">
+                        <label for="louie">D1</label>
+                    
+                        <input type="radio" id="louie" name="drone" value="E1">
+                        <label for="louie">E1</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="dewey" name="drone" value="A2">
+                        <label for="dewey">A2</label>
+                        
+                        <input type="radio" id="louie" name="drone" value="B2">
+                        <label for="louie">B2</label>
+                    
+                        <input type="radio" id="dewey" name="drone" value="C2">
+                        <label for="dewey">C2</label>
+                        
+                        <input type="radio" id="louie" name="drone" value="D2">
+                        <label for="louie">D2</label>
+                    
+                        <input type="radio" id="louie" name="drone" value="E2">
+                        <label for="louie">E2</label>
+                    </div>
+                </div>
+                
+            </div>
+            </form>
+
+            <input type="button" value="Test Start" onclick="testStart();"/>
+        </div>
+        
+        <script src="./index.js"></script>
+    </body>
+</html>
+

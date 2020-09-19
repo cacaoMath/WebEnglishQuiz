@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./main.css">
+        <title>English Test</title>
+    </head>
+    <body>
+
+        <div class="main">
+            <div id="title">
+                <p>English Test pattern </p>
+            </div>
+
+            <div>
+                <div id ="engQuestion">
+                    <p>test</p>
+                </div>
+
+                <div id="selectBtn">
+                    <div><input type="button" id="ans1" class="qstBtn" value="a" onclick="checkAnswer(this.value);"></div>
+                    
+                    <div><input type="button" id="ans2" class="qstBtn" value="b" onclick="checkAnswer(this.value);"></div>
+                    
+                    <div><input type="button" id="ans3" class="qstBtn" value="c" onclick="checkAnswer(this.value);"></div>
+                    
+                    <div><input type="button" id="ans4" class="qstBtn" value="d" onclick="checkAnswer(this.value);"></div>
+                    
+                </div>
+
+            </div>
+
+            <input id="finishBtn" type="button" value="Finish" disabled onclick="backHome();"/>
+            <script src="./EngTestPage.js"></script>
+            <div id="backHome" ><a href="./index.html">中断して戻る</a></div>
+            
+        </div>
+    </body>
+</html>
