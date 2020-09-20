@@ -4,7 +4,7 @@ let quizPattern = "";
 // form要素を取得
 let element = document.getElementById("QuizPattern") ;
 
-// form要素内のラジオボタングループ(name="hoge")を取得
+// form要素内のラジオボタングループ(name="drone")を取得
 let radioNodeList = element.drone ;
 
 //問題ページに移動

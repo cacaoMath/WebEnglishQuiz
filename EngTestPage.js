@@ -10,11 +10,13 @@ document.getElementById("title").innerText = document.getElementById("title").in
 
 //問題パターン設定
 
-
-let words = [["a","aaa"],
-            ["b","bbb"],
-            ["c","ccc"],
-            ["d","ddd"]];
+//問題のリスト["問題番号","英単語","日本語の意味"]
+let words = [
+        ["1","a","aaa"],
+        ["2","b","bbb"],
+        ["3","c","ccc"],
+        ["4","d","ddd"],
+        ["5","e","eee"]];
 
 let questions  = shuffle(words.concat());
 
@@ -32,7 +34,7 @@ function makeQuestion(){
         let qTxt = questions.shift();
         //グローバル変数としている
         correctAns = qTxt;
-        document.getElementById("engQuestion").innerText = qTxt[0];
+        document.getElementById("engQuestion").innerText = qTxt[1];
 
         //解答ボタン用
         let otherQList = [];
@@ -47,7 +49,7 @@ function makeQuestion(){
         otherQList.push(qTxt);
         var i = 1;
         shuffle(otherQList).forEach(element => {
-            document.getElementById("ans"+i.toString()).value = element[1];
+            document.getElementById("ans"+i.toString()).value = element[2];
             i++;
         });
     }else{
@@ -57,7 +59,7 @@ function makeQuestion(){
 }
 
 function checkAnswer(userAns){
-    if(userAns == correctAns[1]){
+    if(userAns == correctAns[2]){
         alert("Correct");
     }else{
         alert("miss correct answer is "+ correctAns[1] );
@@ -109,6 +111,8 @@ function shuffle(array){
     return array;
 }
 
+
+//英単語リストから問題のパターンを絞る用
 function Q_selecter(pattern){
     let qRange;
     switch(pattern){
