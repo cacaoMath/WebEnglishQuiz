@@ -11,14 +11,9 @@ document.getElementById("title").innerText = document.getElementById("title").in
 //問題パターン設定
 
 //問題のリスト["問題番号","英単語","日本語の意味"]
-let words = [
-        ["1","a","aaa"],
-        ["2","b","bbb"],
-        ["3","c","ccc"],
-        ["4","d","ddd"],
-        ["5","e","eee"]];
+let engQuestion = getCsv("./engQuestion.csv");
 
-let questions  = shuffle(words.concat());
+let questions  = shuffle(engQuestion.concat());
 
 //正解の日本語
 let correctAns;
@@ -38,7 +33,7 @@ function makeQuestion(){
 
         //解答ボタン用
         let otherQList = [];
-        let otherQ =  shuffle(words.concat());
+        let otherQ =  shuffle(engQuestion.concat());
         for(var i = 0; i < 3; ){
             var tmp = otherQ.shift();
             if(tmp != qTxt){
@@ -160,6 +155,35 @@ function Q_selecter(pattern){
     return qRange;
 }
 
+// https://qiita.com/rubyfmzk_/items/1902453ca13e4d8662ee より
+function getCsv(url){
+    //CSVファイルを文字列で取得。
+    var txt = new XMLHttpRequest();
+    txt.open('get', url, true);
+    txt.send();
+  
+    //改行ごとに配列化
+    var arr = txt.responseText.split('\n');
+  
+    //1次元配列を2次元配列に変換
+    var res = [];
+    for(var i = 0; i < arr.length; i++){
+      //空白行が出てきた時点で終了
+      if(arr[i] == '') break;
+  
+      //","ごとに配列化
+      res[i] = arr[i].split(',');
+  
+      for(var i2 = 0; i2 < res[i].length; i2++){
+        //数字の場合は「"」を削除
+        if(res[i][i2].match(/\-?\d+(.\d+)?(e[\+\-]d+)?/)){
+          res[i][i2] = parseFloat(res[i][i2].replace('"', ''));
+        }
+      }
+    }
+  
+    return res;
+  }
 
 function makeQarray(range, qData){
 
