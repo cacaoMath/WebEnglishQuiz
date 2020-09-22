@@ -1426,9 +1426,11 @@ function backHome(){
 function sendTestResult(correctNum, missNum){
     var name = params[0][1];
     var qPattern = params[1][1];
+    var correctAnsRate = correctNum.length/50;
     db.collection("engTest").add({
         Name: name,
         Q_Pattern: qPattern,
+        CorrectAnsRate: correctAnsRate,
         right: correctNum,
         miss: missNum
     })
