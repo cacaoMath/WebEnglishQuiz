@@ -1,5 +1,5 @@
 //問題のリスト["問題番号","英単語","日本語の意味"]
-const words = [
+let words = [
     ["1","universal","普遍的な","adj","0"],
 ["2","climate","気候","n","0"],
 ["3","incredible","信じられない","adj","0"],
@@ -1311,11 +1311,11 @@ let missNum = [];
 
 //ページ遷移での値受け取り
 //param[0][1] = name, param[1][1] = questionPattern
-const params = getParam();
+let params = getParam();
 document.getElementById("title").innerText = document.getElementById("title").innerText +" "+ params[1][1];
 
 //問題パターンごとの英単語を入れるもの
-const fiftyWords = Q_ListGen(params[1][1], words);
+let fiftyWords = Q_ListGen(params[1][1], words);
 
 //出題用に使う問題のために配列をコピーする
 let questions  = shuffle(fiftyWords.concat());
