@@ -1488,7 +1488,7 @@ function Q_selecter(pattern){
             qRange = 900;
             break;            
         default:
-            qRange = 1000;
+            qRange = 1200;
             break;
     }
 
