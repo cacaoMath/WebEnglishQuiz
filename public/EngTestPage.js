@@ -1371,6 +1371,7 @@ function makeQuestion(words){
             i++;
         });
     }else{
+        sendTestResult(correctNum, missNum);
         document.getElementById("finishBtn").disabled = false;
         document.getElementById("backHome").remove();
     }
@@ -1417,15 +1418,17 @@ function getParam(){
 //finishのボタンが押されると呼び出される
 //firestoreへの通信とhomeへの遷移
 function backHome(){
-    sendTestResult(correctNum, missNum);
+    
     location.href = "./index.html" +"?name="+params[0][1];
 }
 
 //firestoreにデータを送る
 function sendTestResult(correctNum, missNum){
+    var name = params[0][1];
+    var qPattern = params[1][1];
     db.collection("engTest").add({
-        Name: params[0][1],
-        Q_Pattern: params[1][1],
+        Name: name,
+        Q_Pattern: qPattern,
         right: correctNum,
         miss: missNum
     })

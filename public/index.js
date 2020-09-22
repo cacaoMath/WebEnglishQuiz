@@ -1,5 +1,5 @@
 let name = "";
-let quizPattern = "";
+let quizPattern = "def";
 
 // form要素を取得
 let element = document.getElementById("QuizPattern") ;
@@ -15,8 +15,7 @@ if(getParam() != []){
 function testStart() {
     quizPattern = radioNodeList.value ; 
     name = document.getElementById("name").value;
-    document.cookie = "user=John";
-    if(name != "" && quizPattern != ""){
+    if(name != ""){
         location.href = "./EngTestPage.html" +"?name="+name+"?quizPattern="+quizPattern;
     }else{
         alert("please input your name or quiz pattern")
