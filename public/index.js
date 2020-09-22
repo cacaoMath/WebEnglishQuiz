@@ -16,7 +16,7 @@ function testStart() {
     quizPattern = radioNodeList.value ; 
     name = document.getElementById("name").value;
     document.cookie = "user=John";
-    if(name != ""){
+    if(name != "" && quizPattern != ""){
         location.href = "./EngTestPage.html" +"?name="+name+"?quizPattern="+quizPattern;
     }else{
         alert("please input your name or quiz pattern")
