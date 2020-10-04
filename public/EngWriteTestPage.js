@@ -1223,7 +1223,7 @@ let questions  = shuffle(fiftyWords.concat());
 //正解の英単語の１次元配列を入れる用
 let correctAns;
 
-//初回の問題出題用
+//初回の４選択問題出題用
 makeQuestion(words);
 
 
@@ -1393,7 +1393,7 @@ function Q_selecter(pattern){
             qRange = 900;
             break;            
         default:
-            qRange = 1200;
+            qRange = 1100;
             break;
     }
 
