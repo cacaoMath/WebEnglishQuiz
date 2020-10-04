@@ -30,15 +30,13 @@
                     <p>test</p>
                 </div>
 
-                <div id="selectBtn">
-                    <div><input type="button" id="ans1" class="qstBtn" value="a" onclick="checkAnswer(this.value);"></div>
-                    
-                    <div><input type="button" id="ans2" class="qstBtn" value="b" onclick="checkAnswer(this.value);"></div>
-                    
-                    <div><input type="button" id="ans3" class="qstBtn" value="c" onclick="checkAnswer(this.value);"></div>
-                    
-                    <div><input type="button" id="ans4" class="qstBtn" value="d" onclick="checkAnswer(this.value);"></div>
-                    
+                <div id="ansTxt">
+                    <p>Your Answer</p>
+    
+                    <input type="text" id="answer" 
+                        minlength="4" maxlength="8" size="10">
+
+                    <div><input type="button" class="qstBtn" value="答える" onclick="checkAnswer();"></div>
                 </div>
 
             </div>

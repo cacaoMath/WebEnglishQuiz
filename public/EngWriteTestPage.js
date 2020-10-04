@@ -1224,8 +1224,20 @@ let questions  = shuffle(fiftyWords.concat());
 let correctAns;
 
 //初回の４選択問題出題用
-makeQuestion(words);
+makeWriteQuestion(words);
 
+
+//ボタン押さずにEnterで解答する用
+document.addEventListener('keydown', (event) => {
+    var keyName = event.code;
+
+    if (keyName == "Enter") {
+        console.log("check your answer");
+        checkAnswer();
+    } else{
+        console.log(keyName);
+    }
+  });
 
 
 /*
@@ -1233,6 +1245,8 @@ makeQuestion(words);
 以下function
 
 */
+
+
 
 //全英単語からパターンごとに50問を返す
 function Q_ListGen(pattern, wordList){
@@ -1245,58 +1259,42 @@ function Q_ListGen(pattern, wordList){
 }
 
 //html上のボタン等に４択問題の出題・表示する
-function makeQuestion(words){
+function makeWriteQuestion(words){
 
     if(questions.length > 0){
         //問題表示用 リスト一番の前からとってくる
         let qTxt = questions.shift();
         //グローバル変数(correctAns)に入れておく
         correctAns = qTxt;
-        document.getElementById("engQuestion").innerText = qTxt[1];
+        document.getElementById("engQuestion").innerText = qTxt[2];
 
-        //解答ボタン用
-        let otherQList = [];
-        let otherQ =  shuffle(words.concat());
-        for(var i = 0; i < 3; ){
-            var tmp = otherQ.shift();
-            if(tmp != qTxt){
-                otherQList.push(tmp);
-                i++;
-            }
-        }
-        otherQList.push(qTxt);
-        var i = 1;
-        shuffle(otherQList).forEach(element => {
-            document.getElementById("ans"+i.toString()).value = element[2];
-            i++;
-        });
+
     }else{
-        sendTestResult(correctNum, missNum);
+        if(document.getElementById("backHome") != null){
+            sendTestResult(correctNum, missNum);
+            document.getElementById("backHome").remove();
+        }
         document.getElementById("finishBtn").disabled = false;
-        document.getElementById("backHome").remove();
     }
 }
 
 
 //ボタンを押すと呼ばれる
-function checkAnswer(userAns){
-
-    if(userAns == correctAns[2]){
+function checkAnswer(){
+    let userAns = document.getElementById("answer").value;
+    //alert(userAns);
+    if(userAns == correctAns[1]){
         //alert("Correct");
         document.getElementById("ansCheck").innerText = "Correct!!";
         correctNum.push(correctAns[0]);
     }else{
         //alert("miss correct answer is "+ correctAns[1] );
-        document.getElementById("ansCheck").innerText = "Miss!! "+ correctAns[1] + " = " + correctAns[2];
+        document.getElementById("ansCheck").innerText = "Miss!! "+ correctAns[2] + " = " + correctAns[1];
         missNum.push(correctAns[0]);
     }
-    if(questions.length == 0){
-        for(var i = 1; i <= 4;i++){
-            document.getElementById("ans"+i.toString()).disabled = true;
-        }
-    }
+    document.getElementById("answer").value = "";
     document.getElementById("progress").value = (50 - questions.length).toString();
-    makeQuestion(words);
+    makeWriteQuestion(words);
 }
 
 
@@ -1316,7 +1314,6 @@ function getParam(){
 
 
 //finishのボタンが押されると呼び出される
-//firestoreへの通信とhomeへの遷移
 function backHome(){
     
     location.href = "./index.html" +"?name="+params[0][1];
@@ -1327,12 +1324,11 @@ function sendTestResult(correctNum, missNum){
     var name = params[0][1];
     var qPattern = params[1][1];
     var correctAnsRate = correctNum.length/50;
-    db.collection("engTest").add({
-        Name: name,
+    db.collection("engWriteTest").doc(name).collection("data").add({
         Q_Pattern: qPattern,
         CorrectAnsRate: correctAnsRate,
         right: correctNum,
-        miss: missNum
+        miss: missNum,
     })
     .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
