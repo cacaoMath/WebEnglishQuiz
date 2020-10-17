@@ -15,7 +15,7 @@ if(getParam() != []){
 function testStart() {
     quizPattern = radioNodeList.value ; 
     name = document.getElementById("name").value;
-    if(name != ""){
+    if(name != "" || quizPattern == "def"){
         location.href = "./EngWriteTestPage.html" +"?name="+name+"?quizPattern="+quizPattern;
     }else{
         alert("please input your name or quiz pattern")
