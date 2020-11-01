@@ -239,11 +239,11 @@ function checkAnswer(){
     //alert(userAns);
     if(userAns == correctAns[1]){
         //alert("Correct");
-        document.getElementById("ansCheck").innerText = "Correct!!";
+        //document.getElementById("ansCheck").innerText = "Correct!!";
         correctNum.push(correctAns[0]);
     }else{
         //alert("miss correct answer is "+ correctAns[1] );
-        document.getElementById("ansCheck").innerText = "Miss!! "+ correctAns[2] + " = " + correctAns[1];
+        //document.getElementById("ansCheck").innerText = "Miss!! "+ correctAns[2] + " = " + correctAns[1];
         missNum.push(correctAns[0]);
     }
     document.getElementById("answer").value = "";
