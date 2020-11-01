@@ -1,5 +1,5 @@
 let name = "";
-let quizPattern = "def";
+let quizPattern = "";
 
 // form要素を取得
 let element = document.getElementById("QuizPattern") ;
@@ -15,10 +15,10 @@ if(getParam() != []){
 function testStart() {
     quizPattern = radioNodeList.value ; 
     name = document.getElementById("name").value;
-    if(name != "" || quizPattern == "def"){
+    if(name != "" && quizPattern != ""){
         location.href = "./EngWriteTestPage.html" +"?name="+name+"?quizPattern="+quizPattern;
     }else{
-        alert("please input your name or quiz pattern")
+        alert("Please input your name or check quiz pattern.")
     }
     
 }
