@@ -23,6 +23,17 @@ function testStart() {
     
 }
 
+function selectTestStart() {
+    quizPattern = radioNodeList.value ; 
+    name = document.getElementById("name").value;
+    if(name != "" && quizPattern != ""){
+        location.href = "./EngSelectTestPage.html" +"?name="+name+"?quizPattern="+quizPattern;
+    }else{
+        alert("Please input your name or check quiz pattern.")
+    }
+    
+}
+
 function getParam(){
     let url   = location.href;
     parameters    = url.split("?");
