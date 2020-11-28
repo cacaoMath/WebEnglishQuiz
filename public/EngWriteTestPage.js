@@ -228,7 +228,7 @@ let questions  = shuffle(fiftyWords.concat());
 //正解の英単語の１次元配列を入れる用
 let correctAns;
 
-//初回の４選択問題出題用
+//初回のspell問題出題用
 makeWriteQuestion(words);
 
 
@@ -263,7 +263,7 @@ function Q_ListGen(pattern, wordList){
     return qList;
 }
 
-//html上のボタン等に４択問題の出題・表示する
+//html上の枠にspell問題の出題・表示する
 function makeWriteQuestion(words){
 
     if(questions.length > 0){
@@ -271,7 +271,7 @@ function makeWriteQuestion(words){
         let qTxt = questions.shift();
         //グローバル変数(correctAns)に入れておく
         correctAns = qTxt;
-        document.getElementById("engQuestion").innerText = qTxt[2];
+        document.getElementById("engQuestion").innerText = qTxt[1];
 
 
     }else{
@@ -288,7 +288,7 @@ function makeWriteQuestion(words){
 function checkAnswer(){
     let userAns = document.getElementById("answer").value;
     //alert(userAns);
-    if(userAns == correctAns[1]){
+    if(userAns == correctAns[2]){
         //alert("Correct");
         //document.getElementById("ansCheck").innerText = "Correct!!";
         correctNum.push(correctAns[0]);
