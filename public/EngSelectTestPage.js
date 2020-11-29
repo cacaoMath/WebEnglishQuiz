@@ -45,17 +45,6 @@ makeQuestion(words);
 以下function
 */
 
-//全英単語からパターンごとにx問を返す
-function Q_ListGen(pattern, wordList){
-    var qList = []
-    var tmp= Q_selecter(pattern);
-    //15問ずつにするためにselectでは引く(writeはそのまま?)
-    for(var i = tmp; i < tmp + NUM_OF_QUESTION/2;i++){
-        qList.push(wordList[i]);
-    }
-    return qList;
-}
-
 //html上のボタン等に４択問題の出題・表示する
 function makeQuestion(words){
 
@@ -83,7 +72,7 @@ function makeQuestion(words){
             i++;
         });
     }else{
-        //sendTestResult(correctNum, missNum);
+        sendTestResult(correctNum, missNum);
         document.getElementById("finishBtn").disabled = false;
         document.getElementById("backHome").remove();
     }
@@ -109,7 +98,7 @@ function checkAnswer(userAns){
         }
     }
     document.getElementById("progress").value = (NUM_OF_QUESTION - questions.length).toString();
-    makeQuestion(words);
+    
 }
 
 
@@ -120,7 +109,7 @@ function checkAnswer(userAns){
 //finishのボタンが押されると呼び出される
 //firestoreへの通信とhomeへの遷移
 function backHome(){
-    sendTestResult(correctNum, missNum);
+    //sendTestResult(correctNum, missNum);
     location.href = "./index.html" +"?name="+params[0][1];
 }
 
@@ -158,6 +147,7 @@ function confidenceDialog(){
         confData.push("0")
         confDialog.style.display = "none";
         document.getElementById("selectBtn").style.display = "block";
+        makeQuestion(words);
     };
 
     _1.onclick = () => {
@@ -165,6 +155,7 @@ function confidenceDialog(){
         confData.push("1")
         confDialog.style.display = "none";
         document.getElementById("selectBtn").style.display = "block";
+        makeQuestion(words);
     };
 
     _2.onclick = () => {
@@ -172,5 +163,6 @@ function confidenceDialog(){
         confData.push("2")
         confDialog.style.display = "none";
         document.getElementById("selectBtn").style.display = "block";
+        makeQuestion(words);
     };
 }

@@ -1,5 +1,5 @@
 //英単語リストから問題のパターンを絞る用
-function Q_selecter(pattern){
+function Q_selecter(pattern,NUM_OF_QUESTION){
     let qRange;
     switch(pattern){
         case "A":
@@ -26,6 +26,18 @@ function Q_selecter(pattern){
     }
 
     return qRange;
+}
+
+
+
+//全英単語からパターンごとに問題数分を返す
+function Q_ListGen(pattern, wordList){
+    var qList = []
+    var tmp= Q_selecter(pattern, NUM_OF_QUESTION);
+    for(var i = tmp; i < tmp + NUM_OF_QUESTION;i++){
+        qList.push(wordList[i]);
+    }
+    return qList;
 }
 
 //array shuffle https://www.nxworld.net/tips/js-array-shuffle.html より
