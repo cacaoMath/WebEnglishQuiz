@@ -60,7 +60,8 @@ function makeQuestion(words){
         let otherQ =  shuffle(words.concat());
         for(var i = 0; i < 3; ){
             var tmp = otherQ.shift();
-            if(tmp != qTxt){
+            if(tmp != qTxt && tmp[3] == qTxt[3]){
+                console.log(tmp);
                 otherQList.push(tmp);
                 i++;
             }
