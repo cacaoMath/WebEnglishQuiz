@@ -25,11 +25,22 @@
     font-size: large;
 }
 
+.cnfgBtn{
+    width: 200px;
+    height: 30px;
+    margin:20px;
+}
+
+.Btn{
+    width: 200px;
+    height: 30px;
+    margin: auto;   
+}
+
 #confDialog{
     display: none;
     width: 250px;
     margin: auto;
-    padding: 30px 20px;
     text-align: center;
     border: 1px solid #aaa;
     box-shadow: 2px 2px 4px #888;
