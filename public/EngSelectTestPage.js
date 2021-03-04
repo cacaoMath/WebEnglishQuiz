@@ -1,6 +1,9 @@
 //問題のリスト["問題番号","英単語","日本語の意味"]
 let words = getEnglishWordList();
 
+//今日の日時等の取得
+let date = new Date();
+
 //firestoreに接続
 let db = firebase.firestore();
 
@@ -121,6 +124,7 @@ function sendTestResult(correctNum, missNum){
     var correctAnsRate = correctNum.length/NUM_OF_QUESTION;
     db.collection("engTest").doc(name).collection("data").add({
         Q_Pattern: qPattern,
+        Date: ""+date.getDate()+date.getDay(),
         CorrectAnsRate: correctAnsRate,
         questionList: questionNum,
         confList: confData,
