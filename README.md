@@ -1,5 +1,5 @@
 # WebEnglishQuiz
-html + Javascript による英単語選択問題のサンプル
+html + Javascript による英単語選択問題のサンプル  
 （コードにはスペルチェック用のページのソースもあります．）
 自身の研究に使えるように作成  
 
@@ -9,14 +9,14 @@ html + Javascript による英単語選択問題のサンプル
 Your nameに名前等を記入  
 Quiz Pattern で問題選択（5種類）  
 4選択問題テストボタンでテストスタートです．  
-<img width="400" src="https://user-images.githubusercontent.com/53263220/110059645-f813f500-7da7-11eb-9428-d083102479fd.png"/>
+<img width="600" src="https://user-images.githubusercontent.com/53263220/110059645-f813f500-7da7-11eb-9428-d083102479fd.png"/>
 ## テスト画面
 画像のように英単語が出題されるので，4つの選択肢から正解だと思う答えを選んでください．  
 
-<img width="400" src="https://user-images.githubusercontent.com/53263220/110059658-f9ddb880-7da7-11eb-93b4-f90e34fb6ede.png"/>
+<img width="600" src="https://user-images.githubusercontent.com/53263220/110059658-f9ddb880-7da7-11eb-93b4-f90e34fb6ede.png"/>
 
 回答後，画像のように確信度を聞かれます．直前の自分の回答に対しての確信度を選択してください．  
-<img width="400" src="https://user-images.githubusercontent.com/53263220/110059662-fc401280-7da7-11eb-8a85-9f3caa7ce28f.png"/>
+<img width="600" src="https://user-images.githubusercontent.com/53263220/110059662-fc401280-7da7-11eb-8a85-9f3caa7ce28f.png"/>
 
 英単語は現在各30問あります．全て終わったら下のFinishボタンが有効化されるので押してください．  
 もし，途中で中断したい場合は，下の中断して戻るを押してもらうと中断して戻ります．  
