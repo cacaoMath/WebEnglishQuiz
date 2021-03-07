@@ -23,7 +23,7 @@ confDialog.style.display = "none";
 confDialog.style.height = document.getElementById("selectBtn").style.height;
 
 //一回の問題数
-const NUM_OF_QUESTION = 30;
+const NUM_OF_QUESTION = 50;
 
 //ページ遷移での値受け取り
 //param[0][1] = name, param[1][1] = questionPattern
