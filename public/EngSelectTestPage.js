@@ -56,7 +56,7 @@ function makeQuestion(words){
         let qTxt = questions.shift();
         //グローバル変数(correctAns)に入れておく
         correctAns = qTxt;
-        document.getElementById("engQuestion").innerText = qTxt[2];
+        document.getElementById("engQuestion").innerText = qTxt[1];
 
         //解答ボタン用
         let otherQList = [];
@@ -72,7 +72,7 @@ function makeQuestion(words){
         otherQList.push(qTxt);
         var i = 1;
         shuffle(otherQList).forEach(element => {
-            document.getElementById("ans"+i.toString()).value = element[1];
+            document.getElementById("ans"+i.toString()).value = element[2];
             i++;
         });
     }else{
@@ -87,7 +87,7 @@ function makeQuestion(words){
 function checkAnswer(userAns){
     confidenceDialog()
     questionNum.push(correctAns[0]);
-    if(userAns == correctAns[1]){
+    if(userAns == correctAns[2]){
         //alert("Correct");
         //document.getElementById("ansCheck").innerText = "Correct!!";
         correctNum.push(correctAns[0]);
@@ -124,7 +124,7 @@ function sendTestResult(correctNum, missNum){
     var correctAnsRate = correctNum.length/NUM_OF_QUESTION;
     db.collection("engTest").doc(name).collection("data").add({
         Q_Pattern: qPattern,
-        Date: ""+date.getDate()+date.getDay(),
+        Date: ""+(date.getMonth()+1)+"/"+date.getDate().toString(),
         CorrectAnsRate: correctAnsRate,
         questionList: questionNum,
         confList: confData,
