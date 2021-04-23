@@ -6,7 +6,7 @@ let element = document.getElementById("QuizPattern") ;
 
 // form要素内のラジオボタングループ(name="drone")を取得
 let radioNodeList = element.drone ;
-if(getParam() != []){
+if(getParam().length !== 0){
     name = getParam()[0][1];
     document.getElementById("name").value = name;
 }
