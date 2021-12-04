@@ -122,7 +122,7 @@ function sendTestResult(correctNum, missNum){
     var name = params[0][1];
     var qPattern = params[1][1];
     var correctAnsRate = correctNum.length/NUM_OF_QUESTION;
-    db.collection("engTest").doc(name).collection("data").add({
+    db.collection("engTest_MT").doc(name).collection("data").add({
         Q_Pattern: qPattern,
         Date: ""+(date.getMonth()+1)+"/"+date.getDate().toString(),
         CorrectAnsRate: correctAnsRate,
