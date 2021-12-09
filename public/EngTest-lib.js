@@ -85,7 +85,7 @@ function getEnglishWordList(){
         ["19","burden","負担","n","0"],
         ["20","particular","ある特定な","adj","0"],
         ["21","seaworthy","航海に適した","adv","0"],
-        ["22","influence","に影響を及ぼす","v","0"],
+        ["22","influence","勢力","n","0"],
         ["23","fortune","大金","n","0"],
         ["24","disturb","邪魔する","v","0"],
         ["25","warble","さえずり","adv","0"],
